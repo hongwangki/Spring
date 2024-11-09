@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Details</title>
+    <style>
+        /* 페이지의 스타일을 정의. */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: blue; /* 버튼의 배경색 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004d99;  /* 마우스 오버 시 버튼의 배경색 */
+        }
+    </style>
+</head>
+<body>
+<!-- 페이지의 제목을 표시. -->
+<h1>Photo Details</h1>
+
+<!-- 사진을 표시. -->
+<img th:src="@{'/imgs/' + ${photo.filename}}" alt="photo">
+<!-- 사진의 제목을 표시. -->
+<h2 th:text="${photo.title}"></h2>
+<!-- 사진의 코멘트를 표시. -->
+<p th:text="${photo.comment}"></p>
+<!-- 사진 삭제 버튼을 정의합니다. 클릭 시 /delete/{id} URL로 이동. -->
+<button th:onclick="'location.href=\'/delete/\' + ' + ${photo.id}">Delete</button>
+<!-- 사진 수정 버튼을 정의합니다. 클릭 시 /upload/{id} URL로 이동. -->
+<button th:onclick="'location.href=\'/upload/\' + ' + ${photo.id}">Edit</button>
+</body>
+</html>

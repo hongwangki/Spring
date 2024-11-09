@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Photo</title>
+    <style>
+        /* 페이지 전체에 적용할 스타일을 정의합니다. */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+         /* 제목(h1)의 스타일을 정의. */
+        h1 {
+            margin-top: 20px;
+        }
+          /* 폼(form)의 스타일을 정의. */
+        form {
+            margin: 0 auto;
+            width: 300px;
+            text-align: left;
+        }
+         /* 레이블(label)의 스타일을 정의. */
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+         /* 텍스트 입력(input[type="text"]), 텍스트 영역(textarea), 파일 선택(input[type="file"]), 버튼(button)의 스타일을 정의. */
+        input[type="text"],
+        textarea,
+        input[type="file"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+         /* 버튼(button)의 기본 스타일을 정의. */
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+            /* 버튼에 마우스를 올렸을 때의 스타일을 정의. */
+        button:hover {
+            background-color: #004d99; /* 마우스 오버 시 색상 변경 */
+        }
+    </style>
+</head>
+<body>
+<!-- 페이지의 주요 제목을 설정합니다. -->
+<h1>Upload Photo</h1>
+<!-- 사진을 업로드하는 폼을 설정합니다. -->
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <!-- 제목 입력 필드에 대한 레이블을 설정합니다. -->
+    <label for="title">Input : Title (최대 20자)</label>
+    <!-- 제목 입력 필드를 설정합니다. -->
+    <input type="text" id="title" name="title" maxlength="20" required>
+    <!-- 코멘트 입력 필드에 대한 레이블을 설정합니다. -->
+    <label for="comment">Input : Comment (최대 100자)</label>
+    <!-- 코멘트 입력 필드를 설정합니다. -->
+    <textarea id="comment" name="comment" maxlength="100"></textarea>
+    <!-- 파일 선택 필드에 대한 레이블을 설정합니다. -->
+    <label for="file">파일 선택:</label>
+    <!-- 파일 선택 필드를 설정합니다. -->
+    <input type="file" id="file" name="file" accept=".jpg,.jpeg,.png" required>
+    <!-- 폼 전송 버튼을 설정합니다. -->
+    <button type="submit">전송</button>
+</form>
+</body>
+</html>

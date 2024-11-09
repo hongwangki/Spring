@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        /* 페이지의 스타일을 정의. */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        /* 제목 스타일을 정의. */
+        h1 {
+            margin-top: 20px;
+        }
+          /* 버튼 스타일을 정의. */
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+          /* 사진 컨테이너의 스타일을 정의. */
+        .photo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        /* 개별 사진 아이템의 스타일을 정의. */
+        .photo-item {
+            margin: 10px;
+        }
+          /* 사진의 스타일을 정의합니다. */
+        .photo-item img {
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+         /* 사진에 마우스를 올렸을 때 확대 효과를 정의. */
+        .photo-item img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<!-- 페이지의 주요 제목을 설정. -->
+<h1>2020202060 Photo</h1>
+<!-- 업로드 페이지로 이동하는 버튼을 설정. -->
+<button onclick="location.href='upload'">Upload Photo</button>
+<!-- 사진들을 표시할 컨테이너를 설정. -->
+<div class="photo-container" th:each="photo : ${photos}">
+    <!-- 각 사진 아이템을 설정. -->
+    <div class="photo-item">
+        <!-- 사진을 클릭하면 상세 보기 페이지로 이동하도록 설정. -->
+        <a th:href="@{'/imageview/' + ${photo.id}}">
+            <!-- 사진을 표시. -->
+            <img th:src="@{'/imgs/' + ${photo.filename}}" alt="photo">
+            <!-- 사진의 제목을 표시. -->
+            <p th:text="${photo.title}"></p>
+        </a>
+    </div>
+</div>
+</body>
+</html>
