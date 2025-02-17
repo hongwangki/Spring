@@ -1,0 +1,91 @@
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0; /* 불필요한 여백 제거 */
+}
+
+/* Everything but the jumbotron gets side spacing for mobile-first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px; /* 기존보다 간격을 줄임 */
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 10px; /* 간격을 줄여 균형 맞춤 */
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 15px;
+    padding-bottom: 15px; /* 일정한 여백 유지 */
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign-up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 30px 20px; /* 추가적인 여백 조정 */
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+    margin: 10px; /* 버튼 간격 조정 */
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 20px; /* 간격을 조금 줄임 */
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+        padding: 40px 30px; /* 더 균형 잡힌 간격 */
+    }
+}
